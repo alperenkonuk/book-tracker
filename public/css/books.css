@@ -1,0 +1,63 @@
+#main {
+    margin: 50px;
+    border: 2px solid var(--accent);
+    border-radius: 15px;
+}
+
+th, td {
+    border-right: 1px solid black;
+    padding: 10px;
+}
+
+th:last-of-type {
+    border: none;
+}
+
+td:last-of-type {
+    border-right: none;
+}
+
+td {
+    border-top: 1px solid black;
+    font-size: 1.1rem;
+}
+
+h2 {
+    text-align: left;
+}
+
+.buttons-div {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.read, .rating {
+    text-align: center;
+}
+
+.deleteBtn {
+    background-color: var(--dangerBtn);
+}
+
+.deleteBtn:hover {
+    background-color: var(--dangerHover);
+    cursor: pointer;
+}
+
+.updateBtn {
+    background-color: var(--primaryBtn);
+}
+
+.updateBtn:hover {
+    background-color: var(--primaryBtnHover);
+    cursor: pointer;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Book Tracker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/books.css"/>
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+<%- include('partials/header') %>
+<% if(locals.error) { %>
+    <%- include('partials/errorModal') %>
+<% } %>
+
+<div id="main">
+    <table class="table-header" style="width: 100%">
+        <tr class="title">
+            <th style="width: 25%"><h2>Title</h2></th>
+            <th style="width: 5%; text-align: center"><h2>Rating</h2></th>
+            <th style="width: 5%; text-align: center"><h2>Read</h2></th>
+            <th style="width:40%"><h2>Notes</h2></th>
+            <th style="width: 15%"></th>
+        </tr>
+        <% books.forEach((book) => { %>
+            <tr>
+                <td class="title"><%= book.title %></td>
+                <td class="rating"><%= book.rating %></td>
+                <td class="read"><%= book.read %></td>
+                <td class="notes"><%= book.notes %></td>
+                <td>
+                    <form method="post">
+                        <div class="buttons-div">
+                            <button class="updateBtn btn" formaction="/books/edit/<%= book.isbn %>">
+                                Update
+                            </button>
+                            <button class="deleteBtn btn" formaction="/books/delete/<%= book.isbn %>">
+                                Delete
+                            </button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+</div>
+</body>

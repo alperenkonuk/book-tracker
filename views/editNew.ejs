@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Book Tracker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/header.css"/>
+    <link rel="stylesheet" href="/css/modal.css"/>
+    <link rel="stylesheet" href="/css/edit.css"/>
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+<%- include('partials/header') %>
+<% if(locals.error) { %>
+    <%- include('partials/errorModal') %>
+<% } %>
+<div id="edit-main">
+    <div id="main-container">
+        <div id="img-container">
+            <h2><%= book.title %></h2>
+            <img src="<%= book.url %>" alt="">
+        </div>
+        <div id="form-container">
+            <form method="post">
+                <input type="text" name="isbn" style="display: none" value="<%= book.isbn %>">
+                <input type="text" name="title" style="display: none" value="<%= book.title %>">
+                <div class="form-group">
+                    <input id="read" name="read" type="checkbox">
+                    <label for="read">Have you read this book?</label>
+                </div>
+                <div class="form-group">
+                    <select name="rating" id="rating-select">
+                        <% for(let i = 1; i < 11; i++) { %>
+                            <option value="<%= i %>"><%= i %></option>
+                        <% } %>
+                    </select>
+                    <label for="rating-select">Choose how much point you are giving for this book.</label>
+                </div>
+                <div class="form-group textarea-div">
+                    <label for="textarea">Do you want to take any notes for the book?</label>
+                    <textarea id="textarea" name="notes" autofocus spellcheck="false" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="add" formaction="confirm">Add</button>
+                    <button class="cancel" formaction="cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>

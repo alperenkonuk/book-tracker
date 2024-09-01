@@ -1,0 +1,56 @@
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    background-color: var(--header);
+    border-bottom: 2px solid black;
+}
+
+#header li {
+    list-style: none;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+a:hover {
+    li {
+        text-decoration: underline;
+    }
+    cursor:pointer;
+}
+
+#navbar {
+    position: absolute;
+    left: 0;
+}
+
+#loginBar {
+    position: absolute;
+    right: 0;
+}
+
+#title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#loginBar, #navbar {
+    display: flex;
+    flex-grow: 0;
+}
+
+.vertical-line {
+    border-right: 1px solid black;
+}
+
+#header a {
+    height: 100%;
+    text-decoration: none;
+    padding: 15px;
+}
+
+#header ul {
+    display: flex;
+}
+

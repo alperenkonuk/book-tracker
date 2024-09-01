@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Book Tracker Home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="/css/home.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/modal.css"/>
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+<%- include('partials/header') %>
+<% if(locals.error) { %>
+    <%- include('partials/errorModal') %>
+<% } %>
+<main id="home-main">
+    <div id="form">
+        <form method="post" action="/search" id="search-form">
+            <input name="isbn" type="text" placeholder="Enter the ISBN">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <% if(!locals.book) { %>
+        <div id="information">
+            <h2>What is ISBN</h2>
+            <p>ISBNs are unique identifiers for each book, making it easier
+                to find and order specific titles.</p>
+            <p>You can usually find the ISBN on the back cover of the book or on the copyright page</p>
+            <p>Search book by it's ISBN and than add it to your library.</p>
+        </div>
+    <% } else { %>
+        <div id="img-div">
+            <div id="img-container">
+                <h2 id="img-title"><%= book.title %></h2>
+                <img src="<%= book.url %>">
+            </div>
+            <div id="bottom-part">
+                <div id="text">
+                    <p>Publish Date: <%= book.publishDate %></p>
+                    <p>Total Pages: <%= book.pages %></p>
+                </div>
+                <div id="button-div">
+                    <form method="post" action="/books/editNew">
+                        <button id="btn-add-library" name="isbn" value="<%= book.isbn %>">Add to Library</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</main>
+</body>
+</html>

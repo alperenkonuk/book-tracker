@@ -1,0 +1,113 @@
+#home-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 2px solid var(--accent);
+    padding: 15px;
+    width: 500px;
+    margin: 50px auto 25px;
+    border-radius: 15px;
+}
+
+#form input {
+    margin-top: 10px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.3rem
+}
+
+#form input:focus {
+    outline: none;
+}
+
+#form button {
+    margin-top: 15px;
+    padding: 15px 25px;
+}
+
+#form button, #img-div button{
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    background-color: var(--header);
+}
+
+#form input:focus {
+    outline: 2px solid var(--accent);
+}
+
+#form button:hover, #img-div button {
+    cursor: pointer;
+}
+
+#form button:hover , #btn-add-library:hover{
+    background-color: var(--primaryBtnHover);
+}
+
+#information {
+    outline: 2px solid var(--accent);
+    border-radius: 15px;
+    width: 500px;
+    padding: 15px;
+}
+
+#img-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 2px solid var(--accent);
+    border-radius: 15px;
+    width: 500px;
+    padding:15px;
+}
+
+#img-div > #bottom-part {
+    display: flex;
+    justify-content: space-between;
+    width:60%;
+}
+
+#img-div  #button-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#img-container {
+    outline: 2px solid var(--accent);
+    border-radius: 15px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+#btn-add-library{
+    padding:10px;
+    background-color: var(--header);
+}
+
+#img-div img {
+    height:450px;
+    border-radius: 15px;
+    border:1px solid black;
+}
+
+#img-container h2 {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#information p {
+    margin-top: 5px;
+    font-family: sans-serif;
+    color: var(--accent);
+    text-align: justify;
+
+}
+

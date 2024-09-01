@@ -1,0 +1,30 @@
+<div id="header">
+    <div id="navbar">
+        <ul>
+            <a href="/" class="vertical-line">
+                <li>Home</li>
+            </a>
+            <a href="/books">
+                <li>Books</li>
+            </a>
+
+        </ul>
+    </div>
+    <h1 id="title">BookTracker</h1>
+    <div id="loginBar">
+        <ul>
+            <% if (!locals.userId) { %>
+                <a href="/login" class="vertical-line">
+                    <li>Login</li>
+                </a>
+                <a href="/register">
+                    <li>Register</li>
+                </a>
+            <% } else { %>
+                <a href="/logout">
+                    <li>Logout</li>
+                </a>
+            <% } %>
+        </ul>
+    </div>
+</div>

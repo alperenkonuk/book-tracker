@@ -1,0 +1,46 @@
+#closeModalBtn {
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0 1px 4px black;
+    color: var(--header);
+    cursor: pointer;
+    padding: 10px 25px;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-inner {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    text-align: center;
+    width: 380px;
+}
+
+.modal-inner h2 {
+    margin: 0;
+}
+
+.modal-inner p {
+    line-height: 24px;
+    margin: 10px 0;
+}
