@@ -32,11 +32,14 @@
                 </div>
             </a>
         </div>
-        <div id="login-container" <% if(locals.selected === "register"){ %>hidden<% } %>>
+        <div id="login-container" <% if(locals.selected === "register"){ %>hidden
+                <% } %>
+        >
             <form action="/login" method="post">
                 <div id="form-container">
                     <div class="form-group">
-                        <input class="text-input" id="loginEmail" type="email" name="email" placeholder="Email" required>
+                        <input class="text-input" id="loginEmail" type="email" name="email" placeholder="Email"
+                               required>
                     </div>
                     <div class="form-group password-div">
                         <input class="text-input" type="password" name="password" placeholder="Password" required>
@@ -46,6 +49,9 @@
                             <input type="checkbox" name="remember">
                             Remember me
                         </label>
+                        <% if(locals.loginErr) { %>
+                            <p class="error-text"><%= loginErr %></p>
+                        <% } %>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Log In">
@@ -53,20 +59,26 @@
                 </div>
             </form>
         </div>
-        <div id="register-container" <% if(!locals.selected || locals.selected === "login"){ %> hidden<% } %>>
+        <div id="register-container"
+        <% if(!locals.selected || locals.selected === "login"){ %> hidden
+                <% } %>>
             <form action="/register" method="post">
                 <div id="form-container">
                     <div class="form-group">
                         <input class="text-input" type="email" name="email" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                    <input class="text-input" type="text" name="username" placeholder="Username" required>
-                </div>
+                        <input class="text-input" type="text" name="username" placeholder="Username" required>
+                    </div>
                     <div class="form-group password-div">
                         <input class="text-input" type="password" name="password" placeholder="Password" required>
                     </div>
                     <div class="form-group">
-                        <input class="text-input" type="password" name="passwordAgain" placeholder="Password Again" required>
+                        <input class="text-input" type="password" name="passwordAgain" placeholder="Password Again"
+                               required>
+                        <% if(locals.registerErr) { %>
+                        <p class="error-text"><%= registerErr %></p>
+                        <% } %>
                     </div>
                     <div class="form-group">
                         <label>

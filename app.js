@@ -35,7 +35,6 @@ app.use('/direct', navigateRoute);
 
 
 app.get('/', (req, res) => {
-  console.log(req.session.userId);
   if (req.session.userId) {
     res.render('home', {userId: req.session.userId});
   } else {

@@ -3,7 +3,6 @@ import bookController from "../controllers/bookController.js";
 
 const router = express.Router();
 
-//for user books
 router.get('/', bookController.listAllBooks);
 
 router.post('/edit/:isbn', bookController.editBook);

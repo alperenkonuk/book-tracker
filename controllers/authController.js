@@ -1,5 +1,5 @@
 import User from "../models/User.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcrypt"; // BUNLAR HELPER queryler burda yazılcak model de sınıflar tanımlancak ona atanıp döndürülcek
 
 const saltRounds = 10;
 
@@ -32,10 +32,10 @@ const authController = {
           }
           res.redirect('/');
         } else {
-          res.render('login', {error: "Credentials doesn't match", direction: "login"});
+          res.render('login', {loginErr: "Credentials doesn't match", direction: "login"});
         }
       } else {
-        res.render('login', {error: "User not found.", direction: "login", selected: "login"});
+        res.render('login', {loginErr: "User not found.", direction: "login", selected: "login"});
       }
     } catch (e) {
       console.log(e);
@@ -50,12 +50,10 @@ const authController = {
   async register(req, res) {
     let {username, email, password, passwordAgain, publicProfile} = req.body;
     publicProfile = publicProfile === "on";
-
     try {
       if (password === passwordAgain && password.length < 6) {
         return res.render('login', {
-          error: "Password must be 6 or more characters.",
-          direction: "register",
+          registerErr: "Password must be 6 or more characters.",
           selected: "register",
           name: username,
           email: email,
@@ -64,7 +62,7 @@ const authController = {
       }
       if (password !== passwordAgain) {
         return res.render('login', {
-          error: "Passwords does not match.", direction: "register", selected: "register", name: username,
+          registerErr: "Passwords does not match.", selected: "register", name: username,
           email: email,
           publicProfile: publicProfile
         })
@@ -74,10 +72,10 @@ const authController = {
       const checkUserName = await User.checkByUserName(username);
 
       if (checkEmail.rows.length > 0) {
-        return res.render('login', {direction: 'register', selected: 'register', error: 'Email already in use.'});
+        return res.render('login', {selected: 'register', registerErr: 'Email already in use.'});
       }
       if (checkUserName.rows.length > 0) {
-        return res.render('login', {direction: 'register', selected: 'register', error: 'Username already taken.'})
+        return res.render('login', {selected: 'register', registerErr: 'Username already taken.'})
       }
 
       const hash = await bcrypt.hash(password, saltRounds);
@@ -87,7 +85,7 @@ const authController = {
 
     } catch (e) {
       console.log(e);
-      res.render('login', {error: "An error occurred. Please try again.", direction: "register", selected: "register"});
+      res.render('login', {registerErr: "An error occurred. Please try again.", selected: "register"});
     }
   },
 
