@@ -5,7 +5,7 @@
                 <li>Home</li>
             </a>
             <a href="/books">
-                <li>Books</li>
+                <li class="">Books</li>
             </a>
 
         </ul>
@@ -15,14 +15,14 @@
         <ul>
             <% if (!locals.userId) { %>
                 <a href="/login" class="vertical-line">
-                    <li>Login</li>
+                    <li class="first-child">Login</li>
                 </a>
                 <a href="/register">
                     <li>Register</li>
                 </a>
             <% } else { %>
                 <a href="/logout">
-                    <li>Logout</li>
+                    <li class="last-child">Logout</li>
                 </a>
             <% } %>
         </ul>

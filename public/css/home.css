@@ -108,6 +108,25 @@
     font-family: sans-serif;
     color: var(--accent);
     text-align: justify;
+}
 
+@media screen and (max-width: 600px){
+    #form {
+        width:100%;
+    }
+
+    #search-form {
+        width:98%;
+    }
+
+    #information {
+        width:98%;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    #form input {
+        width:200px;
+    }
 }
 

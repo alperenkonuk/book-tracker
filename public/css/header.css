@@ -13,13 +13,6 @@
     font-size: 1.1rem;
 }
 
-a:hover {
-    li {
-        text-decoration: underline;
-    }
-    cursor:pointer;
-}
-
 #navbar {
     position: absolute;
     left: 0;
@@ -45,12 +38,48 @@ a:hover {
 }
 
 #header a {
+    text-decoration: none;
+}
+
+#header li {
     height: 100%;
     text-decoration: none;
     padding: 15px;
+
 }
 
 #header ul {
     display: flex;
+}
+
+@media screen and (max-width: 600px) {
+    #header {
+        flex-direction: row;
+        height: 125px;
+        flex-wrap:wrap;
+    }
+
+    #title {
+        order: 0;
+        text-align: center;
+        display: block;
+        width:100%;
+        margin-top:15px;
+    }
+
+    #loginBar {
+        order: 2;
+        position: relative;
+    }
+
+    #navbar {
+        order: 1;
+        position: relative;
+    }
+
+    .last-child, .first-child {
+        border-left: 1px solid black;
+    }
+
 }
 
