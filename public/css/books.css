@@ -1,5 +1,6 @@
 #main {
-    margin: 50px;
+    display: flex;
+    margin:50px;
     border: 2px solid var(--accent);
     border-radius: 15px;
 }
@@ -60,4 +61,22 @@ h2 {
 .updateBtn:hover {
     background-color: var(--primaryBtnHover);
     cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+    .notes {
+        display:none;
+    }
+
+    .buttons-div {
+        flex-direction: column;
+        align-items: center;
+        gap:5px;
+    }
+
+    #main{
+        font-size:0.8rem;
+        margin:30px 5px;
+    }
+
 }

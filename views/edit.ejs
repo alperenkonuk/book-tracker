@@ -16,37 +16,41 @@
 <% if(locals.error) { %>
     <%- include('partials/errorModal') %>
 <% } %>
-<div id="edit-main">
-    <div id="main-container">
-        <div id="img-container">
-            <h2><%= book.title %></h2>
-            <img src="<%= book.url %>" alt="">
-        </div>
-        <div id="form-container">
-            <form>
-                <input type="text" name="isbn" style="display: none" value="<%= book.isbn %>">
-                <div class="form-group">
-                    <input id="read" name="read" type="checkbox"<% if(book.hasRead) { %> checked <% } %>>
-                    <label for="read">Have you read this book?</label>
-                </div>
-                <div class="form-group">
-                    <select name="rating" id="rating-select">
-                        <% for(let i = 1; i < 11; i++) { %>
-                            <option value="<%= i %>" <% if(i === book.rating) { %> selected <% } %>><%= i %></option>
+<div id="main-container">
+    <div id="img-container">
+        <h2><%= book.title %></h2>
+        <img src="<%= book.url %>" alt="">
+    </div>
+    <div id="form-container">
+        <form>
+            <input type="text" name="isbn" style="display: none" value="<%= book.isbn %>">
+            <div class="form-group">
+                <input id="read" name="read" type="checkbox"
+                <% if(book.hasRead) { %> checked
                         <% } %>
-                    </select>
-                    <label for="rating-select">Choose how much point you are giving for this book.</label>
-                </div>
-                <div class="form-group textarea-div">
-                    <label for="textarea">Do you want to take any notes for the book?</label>
-                    <textarea id="textarea" name="notes" autofocus spellcheck="false" rows="10"><%= book.notes%></textarea>
-                </div>
-                <div class="form-group">
-                    <button class="save btn"  formmethod="post" formaction="/books/save">Save</button>
-                    <button class="cancel btn" formmethod="get" formaction="/books/cancel">Cancel</button>
-                </div>
-            </form>
-        </div>
+                >
+                <label for="read">Have you read this book?</label>
+            </div>
+            <div class="form-group">
+                <select name="rating" id="rating-select">
+                    <% for(let i = 1; i < 11; i++) { %>
+                        <option value="<%= i %>"
+                        <% if(i === book.rating) { %> selected
+                                <% } %>
+                        ><%= i %></option>
+                    <% } %>
+                </select>
+                <label for="rating-select">Choose how much point you are giving for this book.</label>
+            </div>
+            <div class="form-group textarea-div">
+                <label for="textarea">Do you want to take any notes for the book?</label>
+                <textarea id="textarea" name="notes" autofocus spellcheck="false" rows="10"><%= book.notes %></textarea>
+            </div>
+            <div class="form-group">
+                <button class="save btn" formmethod="post" formaction="/books/save">Save</button>
+                <button class="cancel btn" formmethod="get" formaction="/books/cancel">Cancel</button>
+            </div>
+        </form>
     </div>
 </div>
 </body>
